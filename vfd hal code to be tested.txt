@@ -1,0 +1,23 @@
+# Include your customized HAL commands here
+# This file will not be overwritten when you run stepconf again
+
+loadusr -Wn vfd hy_vfd -n vfd -d /dev/ttyUSB0 -p none -r 9600
+net spindle-cmd-rpm-abs			=> vfd.speed-command
+net spindle-cw motion.spindle.0.forward	=> vfd.spindle-forward
+net spindle-ccw motion.spindle.0.0reverse	=> vfd.spindle-reverse
+net on motion.spindle.0.on		=> vfd.spindle-on
+
+
+
+ custom post gui add in.
+
+# **** Setup of spindle speed display using pyvcp -START ****
+# **** Use COMMANDED spindle velocity from LinuxCNC because no spindle encoder was specified
+
+net spindle-cmd-rpm-abs    => pyvcp.spindle-speed
+
+# **** force spindle at speed indicator true because we have no feedback ****
+
+net spindle-at-speed => pyvcp.spindle-at-speed-led
+net spindle-at-speed => vfd.spindle-at-speed
+setp vfd.enable 1
