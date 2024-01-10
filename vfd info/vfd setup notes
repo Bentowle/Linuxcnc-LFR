@@ -1,6 +1,10 @@
 vfd.hal needs to be added to the config folder.
-main ini file , add "HALFILE = vfd.hal" so it will reead the info 
-when setting up a config in pncconf 
-on the first page when you name the machine uncheck include spindle this adds alot of conflicting info in the ini file.
+main ini file , add "HALFILE = vfd.hal" so it will be read.
 
-custom_postgui.hal will be used so the gui will display the speed of spindle. different gui's have different call outs. 
+when setting up a config in pncconf 
+on the first page when you name the machine uncheck include spindle.
+this adds alot of conflicting info in the ini file. or just comment out
+all spindle sections in main ini/hal file.
+
+custom_postgui.hal can be used so the gui will display the speed of spindle.
+different gui's have different call outs etc. 
