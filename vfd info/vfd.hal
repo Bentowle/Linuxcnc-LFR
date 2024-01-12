@@ -1,4 +1,4 @@
-loadusr -Wn vfd hy_vfd -n vfd -d /dev/ttyUSB0 -p none -S24000 -r 9600 -s 1
+loadusr -Wn vfd hy_vfd -n vfd -d /dev/ttyACM0 -p none -S24000 -r 9600 -s 1
 # Replace ttyUSB0(ttyACM0 current usb adapter) with the address of your adapter
 
 setp vfd.enable 1 # This enables the VFD in the driver
